@@ -1,63 +1,36 @@
-# frontend-challenge
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Olá! 👋
-Este desafio tem como objetivo avaliar suas habilidades práticas em React | Next.js | TypeScript, bem como sua capacidade de organizar, documentar e entregar uma solução de forma clara.
+## Getting Started
 
-Fork este repositório, complete o desafio e envie seu desenvolvimento como Pull Request para análise
+First, run the development server:
 
-📌 Contexto
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-Nossa equipe mantém uma aplicação de cursos online, onde os usuários podem visualizar informações sobre cursos e se inscrever.
-Seu desafio será criar uma pequena aplicação front-end que permita:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Listar os cursos disponíveis.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Visualizar detalhes de um curso.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Realizar a inscrição em um curso.
+## Learn More
 
-Você deve se preocupar tanto com o código quanto com a experiência do usuário.
+To learn more about Next.js, take a look at the following resources:
 
-✅ Requisitos Obrigatórios
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-* Componha a tela de login seguindo o design descrito em:
-	Figma: https://www.figma.com/design/5hZQc5whUDeK8VL40WUCKl/EVOB---Teste-tecnico?node-id=0-1&p=f
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-* Desenvolver utilizando Next.js + TypeScript.
+## Deploy on Vercel
 
-* Consumir os dados de cursos a partir de nossa API
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-* Implementar pelo menos duas páginas:
-
-* / → Lista de cursos (com título, descrição curta e botão “ver detalhes”).
-
-* /curso/[id] → Detalhes do curso (título, descrição completa, carga horária e botão “inscrever-se”).
-
-* Ao clicar em “inscrever-se”, deve simular a inscrição (ex.: salvar em um estado global ou exibir uma mensagem de confirmação).
-
-* Utilizar React Hooks e boas práticas de componentização.
-
-* Diferenciais (não obrigatórios, mas contarão pontos)
-
-* Uso de Tailwind para organização de estilos.
-
-* Gerenciamento de estado global (Context API ou Redux).
-
-* Testes unitários com Jest/Testing Library.
-
-* Deploy da aplicação (ex.: Vercel, Netlify, AWS Amplify) e envio do link junto ao repositório.
-
-* Grava um vídeo de até 5 minutos apresentando seu projeto e justificando tomadas de decisões.
-
-----------------------------
-O que será avaliado:
-- Clean Code;
-- Organização;
-- Pixel Perfect;
-- Boas Práticas;
-- Responsividade
-----------------------------
-
-Fique à vontade p/ agregar funcionalidades ao projeto. Contará pontos extras cada adicional que sua criatividade trouxer
-
-Nos envie o seu teste, para o e-mail (marco@evob.com.br), independentemente dos resultados alcançados dentro do prazo estipulado (1 semana)
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
