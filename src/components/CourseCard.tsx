@@ -1,11 +1,11 @@
-import React from 'react';
 import { Flame, Heart } from 'lucide-react';
 
 type Props = {
   id: number;
   name: string;
   image: string;
-  author: string;
+  description: string;
+  type: string;
   isFavorite: boolean;
   onToggleFavorite: () => void; 
 };
@@ -13,7 +13,8 @@ type Props = {
 export default function CourseCard({
   name,
   image,
-  author,
+  description,
+  type,
   isFavorite,
   onToggleFavorite,
 }: Props) {
@@ -33,7 +34,7 @@ export default function CourseCard({
             <Flame className="w-5 h-5 text-black fill-black" />
           </div>
           <div className="bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded text-sm font-medium">
-            ONLINE
+            {type}
           </div>
         </div>
 
@@ -55,8 +56,8 @@ export default function CourseCard({
         <h2 className="text-2xl font-normal text-gray-900 mb-2">
           {name}
         </h2>
-        <p className="text-base text-gray-700 mb-6">
-          {author}
+        <p className="text-base text-gray-700 mb-6 line-clamp-3">
+          {description}
         </p>
 
         <button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3.5 px-4 rounded transition-colors">
