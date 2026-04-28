@@ -1,13 +1,13 @@
-import HeroBanner from "@/components/HeroBanner"
-import CourseSection from "@/components/CourseSection"
-export default function home () {
+import CourseSection from "@/components/CourseSection";
+import HeroBanner from "@/components/HeroBanner";
+import Navbar from "@/components/Navbar";
+
+export default function Home() {
   return (
-    <div className = "fixed-top bg-white">
+    <div className="bg-white">
+      <Navbar />
       <HeroBanner />
       <CourseSection />
-      
     </div>
-
-
-  )
+  );
 }
