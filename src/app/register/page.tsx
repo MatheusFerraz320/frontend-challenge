@@ -1,17 +1,10 @@
 "use client";
-
+import type { RegisterErrors, RegisterFormData } from "@/types/register";
+import { validateRegister } from "@/utils/validateRegister";
+import { Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Star } from "lucide-react";
-
-type RegisterFormData = {
-  name: string;
-  email: string;
-  confirmEmail: string;
-  password: string;
-  confirmPassword: string;
-};
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState<RegisterFormData>({
@@ -21,6 +14,8 @@ export default function RegisterPage() {
     password: "",
     confirmPassword: "",
   });
+  const [errors, setErrors] = useState<RegisterErrors>({});
+  const errorMessage = Object.values(errors)[0];
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
@@ -33,7 +28,11 @@ export default function RegisterPage() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(formData);
+    const validation = validateRegister(formData);
+    setErrors(validation.errors);
+    if (validation.isValid) {
+      alert("cadastro realizado com sucesso");
+    }
   }
 
   return (
@@ -68,7 +67,7 @@ export default function RegisterPage() {
               </label>
 
               <input
-                name="nome"
+                name="name"
                 value={formData.name}
                 onChange={handleInputChange}
                 placeholder="Digite aqui"
@@ -98,7 +97,7 @@ export default function RegisterPage() {
 
               <input
                 type="email"
-                name="confirmeEmail"
+                name="confirmEmail"
                 value={formData.confirmEmail}
                 onChange={handleInputChange}
                 placeholder="Digite aqui"
@@ -113,7 +112,7 @@ export default function RegisterPage() {
 
               <input
                 type="password"
-                name="senha"
+                name="password"
                 value={formData.password}
                 onChange={handleInputChange}
                 placeholder="Digite aqui"
@@ -132,7 +131,7 @@ export default function RegisterPage() {
 
               <input
                 type="password"
-                name="confirmeSenha"
+                name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleInputChange}
                 placeholder="Digite aqui"
@@ -144,7 +143,14 @@ export default function RegisterPage() {
               </p>
             </div>
 
-            <button className="w-full rounded-lg bg-[#792BF9] py-3 text-white transition hover:bg-[#6821DD]">
+            {errorMessage && (
+              <p className="text-sm text-red-500">{errorMessage}</p>
+            )}
+
+            <button
+              type="submit"
+              className="w-full rounded-lg bg-[#792BF9] py-3 text-white transition hover:bg-[#6821DD]"
+            >
               Iniciar curso
             </button>
           </form>
