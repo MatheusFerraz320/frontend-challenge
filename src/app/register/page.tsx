@@ -1,6 +1,7 @@
 "use client";
 import type { RegisterErrors, RegisterFormData } from "@/types/register";
 import { validateRegister } from "@/utils/validateRegister";
+import RegisterInput from "@/components/RegisterInput";
 import { Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,7 +16,6 @@ export default function RegisterPage() {
     confirmPassword: "",
   });
   const [errors, setErrors] = useState<RegisterErrors>({});
-  const errorMessage = Object.values(errors)[0];
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
@@ -61,91 +61,70 @@ export default function RegisterPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700">
-                Nome
-              </label>
+            <RegisterInput
+              label="Nome"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+            >
+              {errors.name && (
+                <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+              )}
+            </RegisterInput>
 
-              <input
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder="Digite aqui"
-                className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-950 outline-none transition focus:border-[#792BF9] focus:ring-2 focus:ring-[#792BF9]/20"
-              />
-            </div>
+            <RegisterInput
+              label="Email"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+            >
+              {errors.email && (
+                <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+              )}
+            </RegisterInput>
 
-            <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700">
-                Email
-              </label>
+            <RegisterInput
+              label="Confirme Email"
+              type="email"
+              name="confirmEmail"
+              value={formData.confirmEmail}
+              onChange={handleInputChange}
+            >
+              {errors.confirmEmail && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.confirmEmail}
+                </p>
+              )}
+            </RegisterInput>
 
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder="Digite aqui"
-                className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-950 outline-none transition focus:border-[#792BF9] focus:ring-2 focus:ring-[#792BF9]/20"
-              />
-            </div>
+            <RegisterInput
+              label="Crie uma senha"
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              helperText="Deve ter pelo menos 8 caracteres."
+            >
+              {errors.password && (
+                <p className="mt-1 text-sm text-red-500">{errors.password}</p>
+              )}
+            </RegisterInput>
 
-            <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700">
-                Confirme Email
-              </label>
-
-              <input
-                type="email"
-                name="confirmEmail"
-                value={formData.confirmEmail}
-                onChange={handleInputChange}
-                placeholder="Digite aqui"
-                className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-950 outline-none transition focus:border-[#792BF9] focus:ring-2 focus:ring-[#792BF9]/20"
-              />
-            </div>
-
-            <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700">
-                Crie uma senha
-              </label>
-
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                placeholder="Digite aqui"
-                className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-950 outline-none transition focus:border-[#792BF9] focus:ring-2 focus:ring-[#792BF9]/20"
-              />
-
-              <p className="mt-1 text-xs text-gray-500">
-                Deve ter pelo menos 8 caracteres.
-              </p>
-            </div>
-
-            <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700">
-                Confirme a sua senha
-              </label>
-
-              <input
-                type="password"
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleInputChange}
-                placeholder="Digite aqui"
-                className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-950 outline-none transition focus:border-[#792BF9] focus:ring-2 focus:ring-[#792BF9]/20"
-              />
-
-              <p className="mt-1 text-xs text-gray-500">
-                A senha deve ser igual a criada acima.
-              </p>
-            </div>
-
-            {errorMessage && (
-              <p className="text-sm text-red-500">{errorMessage}</p>
-            )}
+            <RegisterInput
+              label="Confirme a sua senha"
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleInputChange}
+              helperText="A senha deve ser igual a criada acima."
+            >
+              {errors.confirmPassword && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.confirmPassword}
+                </p>
+              )}
+            </RegisterInput>
 
             <button
               type="submit"
