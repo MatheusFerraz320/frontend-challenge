@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Search, User, LogIn } from 'lucide-react';
 import type { FormEvent } from 'react';
 import { useState } from 'react';
+import NavbarLogoTextSvg from './NavbarLogoTextSvg';
 
 type NavbarProps = {
   searchValue: string;
@@ -91,9 +92,7 @@ export default function Navbar({ searchValue, onSearchChange }: NavbarProps) {
           />
         </div>
 
-        <span className="text-[#000000] text-[14px] leading-none  tracking-wide font-bold">
-          EVOB
-        </span>
+        <NavbarLogoTextSvg />
       </Link>
 
       {/* Desktop - right*/}

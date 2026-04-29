@@ -1,4 +1,5 @@
-import { Flame, Heart } from 'lucide-react';
+import CourseTypeSvg from './CourseTypeSvg';
+import CourseFavoriteSvg from './CourseFavoriteSvg';
 
 type Props = {
   id: number;
@@ -31,9 +32,9 @@ export default function CourseCard({
         {/* Badge */}
         <div className="absolute bottom-3 left-3 flex items-center gap-2">
           <div className="w-8 h-8 bg-red-500 rounded flex items-center justify-center">
-            <Flame className="w-5 h-5 text-black fill-black" />
+            <CourseTypeSvg />
           </div>
-          <div className="bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded text-sm font-medium">
+          <div className="bg-[#383838] backdrop-blur-sm text-white px-3 py-1 text-sm font-medium">
             {type}
           </div>
         </div>
@@ -43,12 +44,7 @@ export default function CourseCard({
           onClick={onToggleFavorite} 
           className="absolute top-3 right-3 w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/70 transition-colors"
         >
-          <Heart
-            className={`w-5 h-5 ${
-              isFavorite ? "text-red-500 fill-red-500" : "text-white"
-            }`}
-            strokeWidth={1.5}
-          />
+          <CourseFavoriteSvg isFavorite={isFavorite} />
         </button>
       </div>
 
