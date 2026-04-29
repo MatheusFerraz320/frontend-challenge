@@ -31,7 +31,7 @@ function formatCourse(course: ApiCourse): Course {
   return {
     id: course.id,
     name: course.title,
-    image: course.banner || "https://via.placeholder.com/300",
+    image: course.banner ,
     description: course.short_description || "Curso disponível na plataforma.",
     type: getCourseType(course),
     isFavorite: false
@@ -80,7 +80,7 @@ export default function CourseSection({ searchValue }: CourseSectionProps) {
 
   return (
     <section id="coursesList" className="py-20 px-12">
-      <h1 className="text-3xl mb-8 text-black">Meus Cursos</h1>
+      <h1 className="text-3xl mb-8 text-gray-900">Meus Cursos</h1>
 
       {isLoading && <p className="text-gray-700">Carregando cursos...</p>}
 
