@@ -13,3 +13,12 @@ export interface ApiCourse {
     };
   };
 }
+
+export type Course = {
+  id: number;
+  name: string;
+  image: string;
+  description: string;
+  type: string;
+  isFavorite: boolean;
+};
