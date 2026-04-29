@@ -3,19 +3,31 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Search, User, LogIn } from 'lucide-react';
+import type { FormEvent } from 'react';
 import { useState } from 'react';
 
-export default function NavBar() {
+type NavbarProps = {
+  searchValue: string;
+  onSearchChange: (value: string) => void;
+};
+
+export default function Navbar({ searchValue, onSearchChange }: NavbarProps) {
   const [isOpen, setOpen] = useState(false);
 
   const toggleMobileMenu = () => setOpen((current) => !current);
+  const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    document.getElementById("coursesList")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
 
   return (
-    <header className="relative mx-auto flex w-full max-w-[1440px] h-[75px] items-center justify-between px-[60px]">
+    <header className="relative mx-auto flex h-[75px] w-full max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:px-[60px]">
       
       {/* Desktop - Search */}
       <form
-        action="/busca"
+        onSubmit={handleSearchSubmit}
         className="group hidden lg:flex items-center gap-2 transition-all hover:opacity-80"
       >
         <Search
@@ -24,7 +36,9 @@ export default function NavBar() {
         />
         <input
           type="text"
-          name="q"
+          name="search"
+          value={searchValue}
+          onChange={(event) => onSearchChange(event.target.value)}
           placeholder="Busca"
           className="bg-transparent text-base font-semibold leading-[116%] text-black outline-none placeholder:text-black"
         />
@@ -43,9 +57,23 @@ export default function NavBar() {
           <span className="block h-0.5 w-5 bg-purple-300 rounded"></span>
         </button>
 
-        <Link href="/busca" className="text-[#792BF9]">
-          <Search className="h-5 w-5" strokeWidth={1.5} />
-        </Link>
+        <form
+          onSubmit={handleSearchSubmit}
+          className="group flex min-w-0 items-center gap-2 transition-all hover:opacity-80"
+        >
+          <Search
+            className="h-4 w-4 shrink-0 text-[#792BF9] transition-transform group-hover:scale-110"
+            strokeWidth={1.5}
+          />
+          <input
+            type="text"
+            name="search"
+            value={searchValue}
+            onChange={(event) => onSearchChange(event.target.value)}
+            placeholder="Busca"
+            className="w-16 bg-transparent text-base font-semibold leading-[116%] text-black outline-none placeholder:text-black sm:w-28"
+          />
+        </form>
       </div>
 
       {/* LOGO  middle */}

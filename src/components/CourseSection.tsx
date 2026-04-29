@@ -1,9 +1,9 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import CourseCard from "./CourseCard";
 import { fetchCourses } from "@/services/courses/fetchCourses";
 import type { ApiCourse } from "@/types/course";
+import { filterCourse } from "@/utils/filterCourse";
 
 type Course = {
   id: number;
@@ -12,6 +12,10 @@ type Course = {
   description: string;
   type: string;
   isFavorite: boolean;
+};
+
+type CourseSectionProps = {
+  searchValue: string;
 };
 
 function getCourseType(course: ApiCourse) {
@@ -34,10 +38,14 @@ function formatCourse(course: ApiCourse): Course {
   };
 }
 
-export default function CourseSection() {
+export default function CourseSection({ searchValue }: CourseSectionProps) {
   const [courses, setCourses] = useState<Course[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
+  const normalizedSearch = searchValue.trim().toLowerCase();
+  const filteredCourses = normalizedSearch
+    ? courses.filter((course) => filterCourse(course, normalizedSearch))
+    : courses;
 
   useEffect(() => {
     async function loadCourses() {
@@ -80,24 +88,26 @@ export default function CourseSection() {
         <p className="text-red-600">{errorMessage}</p>
       )}
 
-      {!isLoading && !errorMessage && courses.length === 0 && (
+      {!isLoading && !errorMessage && filteredCourses.length === 0 && (
         <p className="text-gray-700">Nenhum curso encontrado.</p>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        {courses.map((course) => (
-          <CourseCard
-            key={course.id}
-            id={course.id}
-            name={course.name}
-            image={course.image}
-            description={course.description}
-            type={course.type}
-            isFavorite={course.isFavorite}
-            onToggleFavorite={() => toggleFavorite(course.id)}
-          />
-        ))}
-      </div>
+      {!isLoading && !errorMessage && filteredCourses.length > 0 && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {filteredCourses.map((course) => (
+            <CourseCard
+              key={course.id}
+              id={course.id}
+              name={course.name}
+              image={course.image}
+              description={course.description}
+              type={course.type}
+              isFavorite={course.isFavorite}
+              onToggleFavorite={() => toggleFavorite(course.id)}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
