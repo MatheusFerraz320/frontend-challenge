@@ -6,6 +6,7 @@ import { Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import NavbarLogoTextSvg from "@/components/NavbarLogoTextSvg";
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState<RegisterFormData>({
@@ -43,10 +44,7 @@ export default function RegisterPage() {
           <span className="flex h-10 w-10 items-center justify-center rounded-md bg-[#ECE8FF]">
             <Image src="/evobLogo.png" alt="EVOB" width={34} height={24} />
           </span>
-
-          <span className="text-lg font-bold tracking-wide text-gray-600">
-            EVOB
-          </span>
+          <NavbarLogoTextSvg />
         </Link>
 
         <div className="flex w-full max-w-md flex-col lg:ml-16">
