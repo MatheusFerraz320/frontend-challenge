@@ -1,6 +1,7 @@
 import CourseCard from "./CourseCard";
 import type { Course } from "@/types/course";
 import { filterCourse } from "@/utils/filterCourse";
+import LoadingCourses from "./LoadingCourses";
 
 type CourseSectionProps = {
   courses: Course[];
@@ -26,7 +27,7 @@ export default function CourseSection({
     <section id="coursesList" className="py-20 px-12">
       <h1 className="text-3xl mb-8 text-gray-900">Meus Cursos</h1>
 
-      {isLoading && <p className="text-gray-700">Carregando cursos...</p>}
+      {isLoading && <LoadingCourses />}
 
       {!isLoading && errorMessage && (
         <p className="text-red-600">{errorMessage}</p>

@@ -28,11 +28,6 @@ export default function CourseDetails () {
         </section>
 
         
-        
-        
-        
-        
-        
          </>
     )
 }
