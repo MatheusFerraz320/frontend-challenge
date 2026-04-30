@@ -24,7 +24,7 @@ export default function CourseSection({
     : courses;
 
   return (
-    <section id="coursesList" className="py-20 px-12">
+    <section id="coursesList" className="py-10 px-12">
       <h1 className="text-3xl mb-8 text-gray-900">Meus Cursos</h1>
 
       {isLoading && <LoadingCourses />}

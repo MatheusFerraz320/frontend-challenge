@@ -58,9 +58,9 @@ export default function CourseCard({
           {description}
         </p>
 
-        <Link className="w-full bg-purple-600 
-        hover:bg-purple-700 text-white 
-        font-semibold py-3.5 px-4 rounded transition-colors"
+        <Link className="block w-full bg-[#792BF9] 
+        hover:bg-purple-700 text-white text-center 
+        font-semibold py-3.5 px-10 rounded transition-colors"
         href={`/courses/${id}`}>
           Acessar
         </Link>

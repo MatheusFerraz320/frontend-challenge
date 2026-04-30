@@ -37,9 +37,9 @@ export default function RegisterPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white lg:grid lg:h-screen lg:grid-cols-2 lg:overflow-hidden">
+    <main className="min-h-screen bg-white lg:grid lg:grid-cols-2 ">
       {/* LEFT */}
-      <section className="flex min-h-screen flex-col justify-center px-6 py-10 sm:px-10 lg:px-16 xl:px-24">
+      <section className="flex min-h-screen flex-col justify-center px-6 py-8 sm:px-10 lg:px-16 xl:px-24">
         <Link href="/" className="mb-10 flex w-fit items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-md bg-[#ECE8FF]">
             <Image src="/evobLogo.png" alt="EVOB" width={34} height={24} />
@@ -133,8 +133,21 @@ export default function RegisterPage() {
           </form>
         </div>
 
+        {/* LOGIN LINK */}
+        <div className="flex justify-center items-start gap-1 w-full mt-8">
+          <p className="text-sm text-gray-600">
+            Já tem uma conta?
+          </p>
+          <Link
+            href="#"
+            className="text-sm font-medium text-[#792BF9] hover:underline"
+          >
+            Entrar
+          </Link>
+        </div>
+
         {/*Mini footer */}
-        <div className="flex justify-between mt-auto">
+        <div className="flex justify-between mt-10 hidden lg:flex md:flex">
           <p className="text-sm text-[#535862]">© EVOB 2025</p>
 
           <div className="flex items-center gap-2 text-sm text-[#535862]">
