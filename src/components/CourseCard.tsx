@@ -1,5 +1,6 @@
 import CourseTypeSvg from './CourseTypeSvg';
 import CourseFavoriteSvg from './CourseFavoriteSvg';
+import Link from 'next/link';
 
 type Props = {
   id: number;
@@ -12,6 +13,7 @@ type Props = {
 };
 
 export default function CourseCard({
+  id,
   name,
   image,
   description,
@@ -56,9 +58,12 @@ export default function CourseCard({
           {description}
         </p>
 
-        <button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3.5 px-4 rounded transition-colors">
+        <Link className="w-full bg-purple-600 
+        hover:bg-purple-700 text-white 
+        font-semibold py-3.5 px-4 rounded transition-colors"
+        href={`/courses/${id}`}>
           Acessar
-        </button>
+        </Link>
       </div>
     </div>
   );
