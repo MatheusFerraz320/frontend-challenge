@@ -1,9 +1,13 @@
 type CourseFavoriteSvgProps = {
   isFavorite: boolean;
+  inactiveColor?: string;
 };
 
-export default function CourseFavoriteSvg({ isFavorite }: CourseFavoriteSvgProps) {
-  const color = isFavorite ? "#ef4444" : "white";
+export default function CourseFavoriteSvg({
+  isFavorite,
+  inactiveColor = "white",
+}: CourseFavoriteSvgProps) {
+  const color = isFavorite ? "#ef4444" : inactiveColor;
 
   return (
     <svg
