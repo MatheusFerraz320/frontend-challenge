@@ -276,7 +276,7 @@ export default function RegisterPage() {
                   className="h-8 w-8 overflow-hidden rounded-full border-2 border-white bg-gray-400"
                 >
                   <Image
-                    src={`/avatar-${i}.jpg`}
+                    src={`/avatar/avatar${i}.png`}
                     alt={`User ${i}`}
                     width={32}
                     height={32}
