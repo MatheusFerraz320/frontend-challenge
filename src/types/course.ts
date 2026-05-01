@@ -4,6 +4,7 @@ export interface ApiCourse {
   slug: string;
   short_description?: string;
   description?: string;
+  long_description?: string;
   banner?: string;
   settings?: {
     course_types?: {

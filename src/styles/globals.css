@@ -1,1 +1,17 @@
 @import 'tailwindcss';
+
+@keyframes auth-fade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-fade {
+  animation: auth-fade 520ms ease-out both;
+}
