@@ -11,6 +11,7 @@ import fetchCourseDetails from "@/services/fetchCourseDetails"
 import LoadingCourses from "@/components/LoadingCourses"
 import type { ApiCourse } from "@/types/course"
 import CourseFavoriteSvg from "@/components/CourseFavoriteSvg"
+import Footer from "@/components/Footer"
 
 export default function CourseDetails() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -52,7 +53,7 @@ export default function CourseDetails() {
     loadCourse(id)
   }, [id])
 
-  // ✅ Estados de render (padrão profissional)
+
   if (loading) return <LoadingCourses />
   if (error) return <p className="p-6">{error}</p>
   if (!course) return <p className="p-6">Curso não encontrado</p>
@@ -126,6 +127,7 @@ export default function CourseDetails() {
       >
         <Share2 className="h-5 w-5 text-gray-600" />
       </button>
+      <Footer />
     </>
   )
 }

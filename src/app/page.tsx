@@ -6,6 +6,7 @@ import FavoriteSection from "@/components/FavoriteSection";
 import { fetchCourses } from "@/services/courses/fetchCourses";
 import type { ApiCourse, Course } from "@/types/course";
 import { useEffect, useState } from "react";
+import Footer from "@/components/Footer";
 
 function getCourseType(course: ApiCourse) {
   const courseTypes = course.settings?.course_types;
@@ -66,6 +67,7 @@ export default function Home() {
   }
 
   return (
+    <>
     <div className="bg-white">
       <Navbar searchValue={searchValue} onSearchChange={setSearchValue} />
       <HeroBanner />
@@ -81,5 +83,7 @@ export default function Home() {
         onToggleFavorite={toggleFavorite}
       />
     </div>
+    <Footer />
+    </>
   );
 }
