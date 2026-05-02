@@ -7,7 +7,7 @@ export default function HeroBanner() {
       <div className="hidden lg:flex h-full">
 
         {/* LEFT*/}
-        <div className="w-[25%] flex flex-col justify-center px-12 xl:px-20 gap-8 z-10">
+        <div className="w-[28%] flex flex-col justify-center px-12 xl:px-20 gap-8 z-10">
           <h1 className="text-white text-5xl xl:text-6xl font-bold leading-tight whitespace-nowrap">
             Aprenda a criar<br />
             uma plataforma<br />

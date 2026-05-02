@@ -12,6 +12,7 @@ import LoadingCourses from "@/components/LoadingCourses"
 import type { ApiCourse } from "@/types/course"
 import CourseFavoriteSvg from "@/components/CourseFavoriteSvg"
 import Footer from "@/components/Footer"
+import Link from "next/link"
 
 export default function CourseDetails() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -111,19 +112,23 @@ export default function CourseDetails() {
               Favoritar
             </button>
 
-            <button className="flex items-center gap-2 rounded-md bg-[#792BF9] px-4 py-2 text-sm font-medium text-white hover:bg-[#6420D6]">
+            <Link href="/register"className="flex items-center gap-2 
+            rounded-md bg-[#792BF9] px-4 
+            py-2 text-sm font-medium text-white hover:bg-[#6420D6]">
               <LogIn className="h-4 w-4" />
               Iniciar curso
-            </button>
+            </Link>
           </div>
 
         </div>
       </section>
 
-      {/* Botão flutuante */}
+      
       <button
         onClick={() => setModalOpen(true)}
-        className="fixed bottom-8 right-8 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg hover:bg-gray-50"
+        className="fixed bottom-[111px] right-[68px] flex h-12 w-12 
+        items-center justify-center rounded-full bg-white 
+        shadow-lg hover:bg-gray-50"
       >
         <Share2 className="h-5 w-5 text-gray-600" />
       </button>

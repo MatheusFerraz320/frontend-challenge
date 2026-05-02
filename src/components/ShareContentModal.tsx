@@ -1,5 +1,5 @@
 
-import { Share2, X, Copy, Heart, LogIn } from "lucide-react";
+import { Share2, X, Copy,  LogIn } from "lucide-react";
 type Props = {
   onClose: () => void;
   url: string;
@@ -35,7 +35,7 @@ export default function ShareContentModal({ onClose , url }: Props) {
                     </div>
 
                     
-                    <button className="flex w-full items-center justify-center gap-2 rounded-md bg-[#25D366] py-2.5 text-sm font-medium text-white transition hover:bg-[#128C7E]">
+                    <button className="flex w-full items-center justify-center gap-2 rounded-md bg-[#2B932F] py-2.5 text-sm font-medium text-white transition hover:bg-[#128C7E]">
                         <svg
                             className="h-5 w-5"
                             fill="currentColor"

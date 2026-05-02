@@ -35,7 +35,7 @@ export default function RegisterPage() {
     setErrors(validation.errors);
 
     if (validation.isValid) {
-      router.push("/register/sucess");
+      router.push("/register/success");
     }
   }
 
