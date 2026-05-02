@@ -63,12 +63,12 @@ export default function Navbar({ searchValue, onSearchChange }: NavbarProps) {
           <span className="h-0.5 w-5 bg-purple-300 rounded"></span>
         </button>
 
-        {/* MOBILE SEARCH (SAFE VERSION) */}
+        {/* MOBILE SEARCH  */}
         <form
           onSubmit={handleSearchSubmit}
           className="flex items-center gap-2"
         >
-          {/* LUPA */}
+         
           <button
             type="button"
             onClick={() => setMobileSearchOpen((prev) => !prev)}
@@ -83,7 +83,7 @@ export default function Navbar({ searchValue, onSearchChange }: NavbarProps) {
             </svg>
           </button>
 
-          {/* NEW INPUT */}
+          
           {mobileSearchOpen && (
             <input
               autoFocus

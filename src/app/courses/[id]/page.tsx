@@ -8,7 +8,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "next/navigation"
 import getUrl from "@/utils/getUrl"
 import fetchCourseDetails from "@/services/fetchCourseDetails"
-import LoadingCourses from "@/components/LoadingCourses"
+import LoadingAnimation from "@/components/LoadingAnimation"
 import type { ApiCourse } from "@/types/course"
 import CourseFavoriteSvg from "@/components/CourseFavoriteSvg"
 import Footer from "@/components/Footer"
@@ -77,7 +77,7 @@ export default function CourseDetails() {
   }, [id])
 
 
-  if (loading) return <LoadingCourses />
+  if (loading) return <LoadingAnimation message="Carregando curso..." />
   if (error) return <p className="p-6">{error}</p>
   if (!course) return <p className="p-6">Curso não encontrado</p>
 

@@ -5,6 +5,8 @@ import RegisterInput from "@/components/RegisterInput";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "sonner";
+import LoadingAnimation from "@/components/LoadingAnimation";
 
 type LoginFormData = {
   email: string;
@@ -24,6 +26,7 @@ export default function LoginPage() {
   });
   const [errors, setErrors] = useState<LoginErrors>({});
   const [rememberMe, setRememberMe] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
@@ -55,7 +58,12 @@ export default function LoginPage() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      router.push("/");
+      toast.success("Login realizado com sucesso!");
+      setLoading(true);
+
+      window.setTimeout(() => {
+        router.push("/");
+      }, 900);
     }
   }
 
@@ -126,10 +134,17 @@ export default function LoginPage() {
 
           <button
             type="submit"
+            disabled={loading}
             className="w-full rounded-lg bg-[#792BF9] py-3 text-sm font-semibold text-white transition hover:bg-[#6821DD]"
           >
             Entrar
           </button>
+
+          {loading && (
+            <div className="pt-4">
+              <LoadingAnimation message="Entrando..." />
+            </div>
+          )}
         </form>
 
         <div className="mt-8 flex flex-col items-center justify-center gap-3 rounded-lg border border-gray-200 px-5 py-4 text-center sm:flex-row sm:text-left">
