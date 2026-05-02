@@ -6,6 +6,7 @@ import { User, LogIn, X } from 'lucide-react';
 import AuthLogo from './AuthLogo';
 import type { Course } from '@/types/course';
 import { filterCourse } from '@/utils/filterCourse';
+import { useUser } from '@/context/UserContext';
 
 type NavbarProps = {
   courses?: Course[];
@@ -14,6 +15,7 @@ type NavbarProps = {
 export default function Navbar({
   courses = [],
 }: NavbarProps) {
+  const { userName, logout } = useUser();
   const [isOpen, setOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
@@ -85,34 +87,67 @@ export default function Navbar({
 
       {/* DESKTOP RIGHT */}
       <nav className="hidden lg:flex items-center gap-5">
-        <Link href="/register" className="flex items-center gap-2">
-          <User className="h-5 w-5 text-[#792BF9]" />
-          <span className="font-semibold">Cadastre-se</span>
-        </Link>
+        {userName ? (
+          <button
+            type="button"
+            onClick={logout}
+            className="flex items-center gap-2 bg-[#792BF9] px-3 py-2 text-white"
+          >
+            <LogIn className="h-5 w-5" />
+            <span className="font-bold">Logout</span>
+          </button>
+        ) : (
+          <>
+            <Link href="/register" className="flex items-center gap-2">
+              <User className="h-5 w-5 text-[#792BF9]" />
+              <span className="font-semibold">Cadastre-se</span>
+            </Link>
 
-        <Link
-          href="/login"
-          className="flex items-center gap-2 bg-[#792BF9] px-3 py-2 text-white"
-        >
-          <LogIn className="h-5 w-5" />
-          <span className="font-bold">Entrar</span>
-        </Link>
+            <Link
+              href="/login"
+              className="flex items-center gap-2 bg-[#792BF9] px-3 py-2 text-white"
+            >
+              <LogIn className="h-5 w-5" />
+              <span className="font-bold">Entrar</span>
+            </Link>
+          </>
+        )}
       </nav>
 
-      
-      <Link href="/login" className="lg:hidden flex items-center">
-        <LogIn className="h-5 w-5 text-[#792BF9]" />
-      </Link>
+      {userName ? (
+        <button type="button" onClick={logout} className="lg:hidden flex items-center">
+          <LogIn className="h-5 w-5 text-[#792BF9]" />
+        </button>
+      ) : (
+        <Link href="/login" className="lg:hidden flex items-center">
+          <LogIn className="h-5 w-5 text-[#792BF9]" />
+        </Link>
+      )}
 
       {/* MOBILE MENU */}
       {isOpen && (
         <nav className="absolute left-4 right-4 top-[75px] z-50 flex flex-col gap-3 rounded-xl border bg-white p-4 shadow-lg lg:hidden">
-          <Link href="/register" onClick={() => setOpen(false)}>
-            Cadastre-se
-          </Link>
-          <Link href="/login" onClick={() => setOpen(false)}>
-            Entrar
-          </Link>
+          {userName ? (
+            <button
+              type="button"
+              onClick={() => {
+                logout();
+                setOpen(false);
+              }}
+              className="text-left"
+            >
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link href="/register" onClick={() => setOpen(false)}>
+                Cadastre-se
+              </Link>
+              <Link href="/login" onClick={() => setOpen(false)}>
+                Entrar
+              </Link>
+            </>
+          )}
         </nav>
       )}
 

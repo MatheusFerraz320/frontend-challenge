@@ -27,7 +27,7 @@ export default function RegisterSuccessPage() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-        {/* Círculo */}
+        {/* Círcle */}
           <path
             d="M15.75 30.75C24 30.75 30.75 24 30.75 15.75C30.75 7.5 24 0.75 15.75 0.75C7.5 0.75 0.75 7.5 0.75 15.75C0.75 24 7.5 30.75 15.75 30.75Z"
             stroke="white"

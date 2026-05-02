@@ -7,6 +7,7 @@ import { fetchCourses } from "@/services/courses/fetchCourses";
 import type { ApiCourse, Course } from "@/types/course";
 import { useEffect, useState } from "react";
 import Footer from "@/components/Footer";
+import { useUser } from "@/context/UserContext";
 
 function getCourseType(course: ApiCourse) {
   const courseTypes = course.settings?.course_types;
@@ -29,6 +30,7 @@ function formatCourse(course: ApiCourse): Course {
 }
 
 export default function Home() {
+  const { userName } = useUser();
   const [courses, setCourses] = useState<Course[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
@@ -77,6 +79,7 @@ export default function Home() {
         errorMessage={errorMessage}
         isLoading={isLoading}
         onToggleFavorite={toggleFavorite}
+        userName={userName}
       />
       <FavoriteSection
         courses={favoriteCourses}

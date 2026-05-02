@@ -7,6 +7,7 @@ type CourseSectionProps = {
   errorMessage: string;
   isLoading: boolean;
   onToggleFavorite: (id: number) => void;
+  userName?: string;
 };
 
 export default function CourseSection({
@@ -14,10 +15,19 @@ export default function CourseSection({
   errorMessage,
   isLoading,
   onToggleFavorite,
+  userName,
 }: CourseSectionProps) {
   return (
     <section id="coursesList" className="px-6 py-10 md:px-12">
-      <h1 className="text-3xl mb-8 text-gray-900">Meus Cursos</h1>
+      <h1 className="text-3xl mb-2 text-gray-900">Meus Cursos</h1>
+
+      {userName && (
+        <p className="mb-8 text-sm text-gray-600">
+          Bem-vindo,<span className="font-bold text-gray-900"> {userName}</span>
+        </p>
+      )}
+
+      {!userName && <div className="mb-8" />}
 
       {isLoading && <LoadingAnimation message="Carregando cursos..." />}
 

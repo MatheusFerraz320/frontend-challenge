@@ -2,6 +2,7 @@
 
 import AuthLogo from "@/components/AuthLogo";
 import RegisterInput from "@/components/RegisterInput";
+import { useUser } from "@/context/UserContext";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -9,18 +10,22 @@ import { toast } from "sonner";
 import LoadingAnimation from "@/components/LoadingAnimation";
 
 type LoginFormData = {
+  name: string;
   email: string;
   password: string;
 };
 
 type LoginErrors = {
+  name?: string;
   email?: string;
   password?: string;
 };
 
 export default function LoginPage() {
   const router = useRouter();
+  const { login } = useUser();
   const [formData, setFormData] = useState<LoginFormData>({
+    name: "",
     email: "",
     password: "",
   });
@@ -40,6 +45,10 @@ export default function LoginPage() {
   function validateLogin() {
     const newErrors: LoginErrors = {};
 
+    if (!formData.name.trim()) {
+      newErrors.name = "Informe seu nome.";
+    }
+
     if (!formData.email.trim()) {
       newErrors.email = "Informe seu e-mail.";
     }
@@ -58,6 +67,7 @@ export default function LoginPage() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
+      login(formData.name);
       toast.success("Login realizado com sucesso!");
       setLoading(true);
 
@@ -87,6 +97,18 @@ export default function LoginPage() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
+          <RegisterInput
+            label="Nome"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            placeholder="Digite seu nome"
+          >
+            {errors.name && (
+              <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+            )}
+          </RegisterInput>
+
           <RegisterInput
             label="Email"
             type="email"
