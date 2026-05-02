@@ -1,11 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import type { FormEvent } from 'react';
 import { useState } from 'react';
 import { User, LogIn } from 'lucide-react';
-import NavbarLogoTextSvg from './NavbarLogoTextSvg';
+import AuthLogo from './AuthLogo';
 
 type NavbarProps = {
   searchValue: string;
@@ -99,21 +98,12 @@ export default function Navbar({ searchValue, onSearchChange }: NavbarProps) {
       </div>
 
       {/* LOGO */}
-      <Link
-        href="/"
+      <AuthLogo
         className="absolute left-1/2 top-[24px] -translate-x-1/2 flex items-center gap-1.5"
-      >
-        <div className="rounded-[4px] bg-[#ECE8FF] p-1">
-          <Image
-            src="/evobLogo.png"
-            alt="Evob Logo"
-            width={32}
-            height={32}
-          />
-        </div>
-
-        <NavbarLogoTextSvg />
-      </Link>
+        iconClassName="rounded-[4px] bg-[#ECE8FF] p-1"
+        imageWidth={32}
+        imageHeight={32}
+      />
 
       {/* DESKTOP RIGHT */}
       <nav className="hidden lg:flex items-center gap-5">

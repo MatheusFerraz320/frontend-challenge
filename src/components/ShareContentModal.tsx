@@ -8,10 +8,10 @@ export default function ShareContentModal({ onClose , url }: Props) {
 
     return (
         <>
-            {/* Modal Compartilhar */}
+            
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
                 <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-xl">
-                    {/* Header do modal */}
+                    {/* Header  */}
                     <div className="mb-4 flex items-center justify-between">
                         <h3 className="text-base font-semibold text-gray-900">
                             Compartilhar curso
@@ -35,7 +35,7 @@ export default function ShareContentModal({ onClose , url }: Props) {
                     </div>
 
                     
-                    <button className="flex w-full items-center justify-center gap-2 rounded-md bg-[#2B932F] py-2.5 text-sm font-medium text-white transition hover:bg-[#128C7E]">
+                    <button className="flex w-full items-center justify-center gap-2 rounded-md bg-[#2B932F] py-2.5 text-sm font-medium text-white ">
                         <svg
                             className="h-5 w-5"
                             fill="currentColor"

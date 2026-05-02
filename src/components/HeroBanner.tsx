@@ -7,8 +7,8 @@ export default function HeroBanner() {
       <div className="hidden lg:flex h-full">
 
         {/* LEFT*/}
-        <div className="w-[28%] flex flex-col justify-center px-12 xl:px-20 gap-8 z-10">
-          <h1 className="text-white text-5xl xl:text-6xl font-bold leading-tight whitespace-nowrap">
+        <div className="w-[30%] flex flex-col justify-center px-12 xl:px-20 gap-8 z-10">
+          <h1 className="font-['Roboto_Condensed'] text-[52px] font-bold leading-[116%] tracking-normal text-white whitespace-nowrap">
             Aprenda a criar<br />
             uma plataforma<br />
             LMS do zero
@@ -62,7 +62,7 @@ export default function HeroBanner() {
         <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative z-10 flex flex-col justify-center h-full px-6 gap-6">
-          <h1 className="text-white text-4xl font-bold leading-tight">
+          <h1 className="font-['Roboto_Condensed'] text-4xl font-bold leading-[116%] tracking-normal text-white">
             Aprenda a criar uma<br />
             plataforma LMS do<br />
             zero

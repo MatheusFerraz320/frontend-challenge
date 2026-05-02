@@ -26,6 +26,28 @@ export default function CourseDetails() {
   const id = params?.id ? Number(params.id) : null
 
   const url = getUrl()
+  const courseActions = (
+    <>
+      <button
+        onClick={() => setIsFavorite((current) => !current)}
+        className="flex items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50"
+      >
+        <CourseFavoriteSvg
+          isFavorite={isFavorite}
+          inactiveColor="#4b5563"
+        />
+        Favoritar
+      </button>
+
+      <Link
+        href="/register"
+        className="flex items-center justify-center gap-2 rounded-md bg-[#792BF9] px-4 py-2 text-sm font-medium text-white hover:bg-[#6420D6]"
+      >
+        <LogIn className="h-4 w-4" />
+        Iniciar curso
+      </Link>
+    </>
+  )
 
   useEffect(() => {
     if (!id) return
@@ -81,12 +103,16 @@ export default function CourseDetails() {
         )}
       </section>
 
+      <div className="flex flex-col gap-3 px-6 py-6 md:hidden">
+        {courseActions}
+      </div>
+
       {/* Modal */}
       {modalOpen && (
         <ShareContentModal onClose={() => setModalOpen(false)} url={url} />
       )}
 
-      {/* Conteúdo */}
+      {/* Content */}
       <section className="px-15 pt-15 pb-12">
         <div className="flex items-start justify-between">
           
@@ -100,24 +126,8 @@ export default function CourseDetails() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setIsFavorite((current) => !current)}
-              className="flex items-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50"
-            >
-              <CourseFavoriteSvg
-                isFavorite={isFavorite}
-                inactiveColor="#4b5563"
-              />
-              Favoritar
-            </button>
-
-            <Link href="/register"className="flex items-center gap-2 
-            rounded-md bg-[#792BF9] px-4 
-            py-2 text-sm font-medium text-white hover:bg-[#6420D6]">
-              <LogIn className="h-4 w-4" />
-              Iniciar curso
-            </Link>
+          <div className="hidden items-center gap-3 md:flex">
+            {courseActions}
           </div>
 
         </div>

@@ -1,8 +1,7 @@
 import { Star } from "lucide-react";
+import AuthLogo from "@/components/AuthLogo";
 import Image from "next/image";
-import Link from "next/link";
 import type { ReactNode } from "react";
-import NavbarLogoTextSvg from "@/components/NavbarLogoTextSvg";
 
 type AuthLayoutProps = {
   children: ReactNode;
@@ -12,12 +11,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <main className="min-h-screen bg-white lg:grid lg:grid-cols-2">
       <section className="flex min-h-screen flex-col justify-center px-6 py-8 sm:px-10 lg:px-16 xl:px-24">
-        <Link href="/" className="mb-10 flex w-fit items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-md bg-[#ECE8FF]">
-            <Image src="/evobLogo.png" alt="EVOB" width={34} height={24} />
-          </span>
-          <NavbarLogoTextSvg />
-        </Link>
+        <AuthLogo />
 
         <div className="auth-fade flex w-full max-w-md flex-1 flex-col justify-center lg:ml-16">
           {children}

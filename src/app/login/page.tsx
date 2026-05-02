@@ -1,8 +1,7 @@
 "use client";
 
+import AuthLogo from "@/components/AuthLogo";
 import RegisterInput from "@/components/RegisterInput";
-import NavbarLogoTextSvg from "@/components/NavbarLogoTextSvg";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -63,12 +62,7 @@ export default function LoginPage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-white px-6 py-10">
       <section className="auth-fade w-full max-w-[430px]">
-        <Link href="/" className="mx-auto mb-10 flex w-fit items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-md bg-[#ECE8FF]">
-            <Image src="/evobLogo.png" alt="EVOB" width={34} height={24} />
-          </span>
-          <NavbarLogoTextSvg />
-        </Link>
+        <AuthLogo className="mx-auto mb-10 flex w-fit items-center gap-3" />
 
         <div className="mb-8 text-center">
           <p className="mb-3 text-sm font-medium text-[#792BF9]">

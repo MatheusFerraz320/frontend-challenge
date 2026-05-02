@@ -44,8 +44,8 @@ export default function RegisterPage() {
       <div className="mb-8">
         <h1 className="text-4xl font-semibold text-gray-950">Criar conta</h1>
 
-        <p className="mt-3 text-sm leading-6 text-gray-600">
-          Preencha seus dados para criar seu acesso e iniciar o curso.
+        <p className="mt-3 text-sm leading-6 text-gray-600 md:hidden">
+          Start turning your ideas into reality.
         </p>
       </div>
 
