@@ -16,7 +16,7 @@ export default function FavoriteSection({
 
       {courses.length === 0 ? (
         <div className="flex items-center justify-center mt-16">
-          <div className="flex flex-col items-center justify-center border border-gray-200 px-12 py-10 rounded-md">
+          <div className="flex flex-col items-center justify-center px-12 py-10 ">
             <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 mb-4">
               <svg
                 width="24"
@@ -49,7 +49,7 @@ export default function FavoriteSection({
               </svg>
             </div>
 
-            <p className="text-sm text-gray-500 text-center max-w-[220px]">
+            <p className="text-[14px] text-[#666666] text-center max-w-[220px]">
               Parece que você ainda não tem cursos favoritados
             </p>
           </div>
