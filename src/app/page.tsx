@@ -29,7 +29,6 @@ function formatCourse(course: ApiCourse): Course {
 }
 
 export default function Home() {
-  const [searchValue, setSearchValue] = useState("");
   const [courses, setCourses] = useState<Course[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
@@ -69,13 +68,14 @@ export default function Home() {
   return (
     <>
     <div className="bg-white">
-      <Navbar searchValue={searchValue} onSearchChange={setSearchValue} />
+      <Navbar
+        courses={courses}
+      />
       <HeroBanner />
       <CourseSection
         courses={courses}
         errorMessage={errorMessage}
         isLoading={isLoading}
-        searchValue={searchValue}
         onToggleFavorite={toggleFavorite}
       />
       <FavoriteSection

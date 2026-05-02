@@ -16,7 +16,6 @@ import Link from "next/link"
 
 export default function CourseDetails() {
   const [modalOpen, setModalOpen] = useState(false)
-  const [searchValue, setSearchValue] = useState("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [course, setCourse] = useState<ApiCourse | null>(null)
@@ -83,10 +82,7 @@ export default function CourseDetails() {
 
   return (
     <>
-      <Navbar
-        searchValue={searchValue}
-        onSearchChange={setSearchValue}
-      />
+      <Navbar />
 
       {/* Banner */}
       <section className="w-full">

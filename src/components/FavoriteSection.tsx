@@ -11,7 +11,7 @@ export default function FavoriteSection({
   onToggleFavorite,
 }: FavoriteSectionProps) {
   return (
-    <section id="favoriteList" className="py-20 px-12">
+    <section id="favoriteList" className="py-15 px-12">
       <h2 className="text-3xl mb-8 text-gray-900">Meus favoritos</h2>
 
       {courses.length === 0 ? (
