@@ -117,7 +117,7 @@ export default function Navbar({
       )}
 
       {searchModalOpen && (
-        <div className="fixed inset-0 z-[100] bg-black/40 px-4 py-8">
+        <div className="fixed inset-0 z-[100] overflow-y-auto bg-black/40 px-4 py-8">
           <div className="mx-auto w-full max-w-xl rounded-lg bg-white p-5 shadow-xl">
             <div className="mb-4 flex items-center justify-between gap-4">
               <h2 className="text-lg font-semibold text-gray-950">

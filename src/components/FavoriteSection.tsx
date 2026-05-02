@@ -11,12 +11,12 @@ export default function FavoriteSection({
   onToggleFavorite,
 }: FavoriteSectionProps) {
   return (
-    <section id="favoriteList" className="py-15 px-12">
+    <section id="favoriteList" className="px-6 py-12 md:px-12 md:py-15">
       <h2 className="text-3xl mb-8 text-gray-900">Meus favoritos</h2>
 
       {courses.length === 0 ? (
         <div className="flex items-center justify-center mt-16">
-          <div className="flex flex-col items-center justify-center px-12 py-10 ">
+          <div className="flex flex-col items-center justify-center px-6 py-10 md:px-12">
             <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 mb-4">
               <svg
                 width="24"

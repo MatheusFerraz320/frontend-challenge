@@ -87,7 +87,7 @@ export default function CourseDetails() {
       {/* Banner */}
       <section className="w-full">
         {course.banner && (
-          <div className="relative w-full h-[540px]">
+          <div className="relative h-[320px] w-full md:h-[540px]">
             <Image
               src={course.banner}
               alt={course.title}
@@ -109,8 +109,8 @@ export default function CourseDetails() {
       )}
 
       {/* Content */}
-      <section className="px-15 pt-15 pb-12">
-        <div className="flex items-start justify-between">
+      <section className="px-6 pt-10 pb-12 md:px-15 md:pt-15">
+        <div className="flex flex-col items-start justify-between gap-8 md:flex-row">
           
           <div className="flex max-w-2xl flex-col gap-5">
             <h1 className="text-3xl font-bold text-[#252525]">
@@ -132,7 +132,7 @@ export default function CourseDetails() {
       
       <button
         onClick={() => setModalOpen(true)}
-        className="fixed bottom-[111px] right-[68px] flex h-12 w-12 
+        className="fixed bottom-8 right-6 flex h-12 w-12 md:bottom-[111px] md:right-[68px]
         items-center justify-center rounded-full bg-white 
         shadow-lg hover:bg-gray-50"
       >

@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function Footer() {
     return (
         <footer className="w-full bg-gray-100 py-6">
-            <div className="mx-auto px-[60px] flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-between gap-6">
+            <div className="mx-auto flex flex-col items-start justify-start gap-6 px-6 sm:flex-row sm:items-center sm:justify-between md:px-[60px]">
 
                 {/* LEFT - Social */}
                 <div className="flex items-center gap-4">
